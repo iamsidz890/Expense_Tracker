@@ -20,7 +20,7 @@ function ExpenseItem(props) {
   const [title , setTitle] = useState(props.title); //changes will be called again , returns an array with two elements , value and updating function
   // const will work fine as new value is not assigned , instead it check for the latest value
   function clickHandler () {
-    setTitle('updated title from use state'); //telling react to re render , data that might change and update then state is needed.
+    setTitle(title); //telling react to re render , data that might change and update then state is needed.
    console.log('this click is in handler.')   
   }
   // state managed on component basis , each component has its own instance of state , hence all are not changed
@@ -35,7 +35,7 @@ function ExpenseItem(props) {
     <Card className="expense-item">
       <ExpenseDate date = {props.date}/>
       <div className="expense-item__description">
-        <h2>{title}</h2>
+        <h2>{props.title}</h2>
         {/* inside {} can run basic js .. */}
         <div className="expense-item__price">{props.amount}</div>
         <button onClick = {()=>{console.log('clicked')}}>Change Title</button> 
