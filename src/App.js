@@ -12,11 +12,16 @@ const expenses = [
   { title: "Mouse", amount: 499, date: new Date(2021, 7, 9) },
 ];
 function App() {
+
+  const addExpenseHandler = expense => {
+    console.log('app.js ke andar');
+    console.log(expense);
+  }
   return (
     // in browser they get converted to react methods i.e React.createElement() , we do not see this code in browser.
     <div className="App">
       <h1>React mini project 1</h1>
-      <NewExpense/>
+      <NewExpense onAddExpense = {addExpenseHandler}/>
       {/* <p>This is also in app.js</p> */}
       <Expenses expenses={expenses} />
       {/* if it would have js , then create paragraph append etc.... */}
