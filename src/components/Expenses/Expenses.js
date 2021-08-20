@@ -3,6 +3,7 @@ import ExpenseFilter from "./ExpenseFilter";
 import Card from "../UI/Card";
 import ExpenseItem from "./ExpenseItems";
 import "./Expenses.css";
+import ExpensesChart from "./ExpensesChart";
 
 function Expenses(props) {
   const [filteredYear, setFilteredYear] = useState("2020");
@@ -25,8 +26,10 @@ function Expenses(props) {
         {/* we are here using map to simply map every element of the array to a component */}
         {/* {props.items.map(expense => ( */}
         {/* conditional rendering */}
+        <ExpensesChart  expenses = {filteredExpenses}/>
         {filteredExpenses.length === 0 ? (<p>No expenses found.....</p>) : ( filteredExpenses.map(expense => (
           //  {filteredExpense.length===0 && <p>blah vlaj</p>}  if the first condition is true then the code after && gets executed
+         
           <ExpenseItem
           // help react identify the new element , else it will check each and every one of the element 
           // key is like a keyword can be used in component as well as all the html tags , and help react identify each element or div seperately
